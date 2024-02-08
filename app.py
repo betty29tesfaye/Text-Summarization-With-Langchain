@@ -1,6 +1,7 @@
 import warnings
 import time
 import os 
+import base64
 
 warnings.filterwarnings('ignore')
 
