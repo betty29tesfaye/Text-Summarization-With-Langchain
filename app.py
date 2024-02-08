@@ -15,16 +15,12 @@ from PIL import Image
 from langchain.chains.summarize import load_summarize_chain
 from langchain.chat_models import ChatOpenAI
 
-def temporarly_save_uploaded_file(uploadedfile):
-     with open(uploadedfile.name,"wb") as f:
-         f.write(uploadedfile.getbuffer())
-          
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
 text_splitter = RecursiveCharacterTextSplitter(
    chunk_size=1000,
    chunk_overlap=100,
 )
-
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 def add_background_image(image_file):
   with open(image_file, "rb") as image_file:
@@ -47,18 +43,20 @@ uploaded_file = st.file_uploader(' ')
 def temporarly_save_uploaded_file(uploadedfile):
      with open(uploadedfile.name,"wb") as f:
          f.write(uploadedfile.getbuffer())
-          
-temporarly_save_uploaded_file(uploaded_file.name)
 
-loaded_file = PyPDFLoader(file_path=file_path)
-data_chunks = loaded_file.load_and_split(text_splitter=text_splitter)
+if uploaded_file is not None:
+          
+   temporarly_save_uploaded_file(uploaded_file.name)
+
+   loaded_file = PyPDFLoader(file_path=file_path)
+   data_chunks = loaded_file.load_and_split(text_splitter=text_splitter)
 
 #Defining the large language Model
 
-llm = ChatOpenAI()
+   llm = ChatOpenAI()
 
-chain = load_summarize_chain(
-   llm=llm,
-   chain_type='refine'
-)
-chain.run(data_chunks)
+   chain = load_summarize_chain(
+       llm=llm,
+       chain_type='refine'
+      )
+   chain.run(data_chunks)
