@@ -1,5 +1,7 @@
 import warnings
 import time
+import os 
+
 warnings.filterwarnings('ignore')
 
 from langchain.chat_models import ChatOpenAI
