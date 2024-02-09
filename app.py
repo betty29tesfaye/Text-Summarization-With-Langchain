@@ -47,7 +47,7 @@ uploaded_file = st.file_uploader(' ')
 if uploaded_file is not None:
  
           
-   #temporarly_save_uploaded_file(uploaded_file.name)
+   temporarly_save_uploaded_file(uploaded_file)
 
    #loaded_file = PyPDFLoader(str(uploaded_file.name))
    #data_chunks = uploaded_file.load_and_split(text_splitter=text_splitter)
@@ -55,10 +55,10 @@ if uploaded_file is not None:
 
 #Defining the large language Model
 
-   llm = ChatOpenAI()
+   # llm = ChatOpenAI()
 
-   chain = load_summarize_chain(
-       llm=llm,
-       chain_type='refine'
-      )
-   chain.run(data_chunks)
+   # chain = load_summarize_chain(
+   #     llm=llm,
+   #     chain_type='refine'
+   #    )
+   # chain.run(data_chunks)
