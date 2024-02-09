@@ -47,7 +47,7 @@ uploaded_file = st.file_uploader(' ')
 if uploaded_file is not None:
  
           
-   #temporarly_save_uploaded_file(uploaded_file.name)
+   temporarly_save_uploaded_file(uploaded_file.name)
 
    #loaded_file = PyPDFLoader(str(uploaded_file.name))
    data_chunks = uploaded_file.load_and_split(text_splitter=text_splitter)
