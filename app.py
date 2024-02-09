@@ -36,7 +36,7 @@ def add_background_image(image_file):
     """,
     unsafe_allow_html=True
     )
-  def temporarly_save_uploaded_file(uploadedfile):
+def temporarly_save_uploaded_file(uploadedfile):
      with open(uploadedfile.name,"wb") as f:
          f.write(uploadedfile.getbuffer())
 add_background_image('bgi.png')   
