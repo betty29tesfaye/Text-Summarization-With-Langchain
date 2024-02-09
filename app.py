@@ -50,8 +50,8 @@ if uploaded_file is not None:
    temporarly_save_uploaded_file(uploaded_file)
 
    loaded_file = PyPDFLoader(str(uploaded_file.name))
-   #data_chunks = uploaded_file.load_and_split(text_splitter=text_splitter)
-   data_chunks=text_splitter.split_text(uploaded_file)
+   data_chunks = uploaded_file.load_and_split(text_splitter=text_splitter)
+   #data_chunks=text_splitter.split_text(uploaded_file)
 
 #Defining the large language Model
 
