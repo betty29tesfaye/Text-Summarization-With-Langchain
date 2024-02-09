@@ -36,19 +36,20 @@ def add_background_image(image_file):
     """,
     unsafe_allow_html=True
     )
+  def temporarly_save_uploaded_file(uploadedfile):
+     with open(uploadedfile.name,"wb") as f:
+         f.write(uploadedfile.getbuffer())
 add_background_image('bgi.png')   
+
 st.markdown(f'<span style="background-color:#DFF2FF;color:#0F52BA;font-family:book-antiqua;font-size:24px;">AI App For Text Summarizing</span>', unsafe_allow_html=True)
 uploaded_file = st.file_uploader(' ')
 
-def temporarly_save_uploaded_file(uploadedfile):
-     with open(uploadedfile.name,"wb") as f:
-         f.write(uploadedfile.getbuffer())
-
 if uploaded_file is not None:
+ 
           
    temporarly_save_uploaded_file(uploaded_file.name)
 
-   loaded_file = PyPDFLoader(file_path=file_path)
+   loaded_file = PyPDFLoader(str(uploaded_file.name))
    data_chunks = loaded_file.load_and_split(text_splitter=text_splitter)
 
 #Defining the large language Model
