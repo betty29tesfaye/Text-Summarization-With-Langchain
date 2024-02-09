@@ -63,5 +63,5 @@ if uploaded_file is not None:
         )
     st.markdown(f'<p style="background-color:#b3cee5;color:#414C6B;">Here is the summary of the file you uploaded</p>', unsafe_allow_html=True) 
       
-   st.markdown(f'<p style="background-color:#b3cee5;color:#414C6B;">{chain.run(data_chunks)}</p>', unsafe_allow_html=True) 
+    st.markdown(f'<p style="background-color:#b3cee5;color:#414C6B;">{chain.run(data_chunks)}</p>', unsafe_allow_html=True) 
 
