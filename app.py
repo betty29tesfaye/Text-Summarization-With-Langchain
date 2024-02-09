@@ -55,10 +55,10 @@ if uploaded_file is not None:
 
 #Defining the large language Model
 
-   # llm = ChatOpenAI()
+   llm = ChatOpenAI()
 
-   # chain = load_summarize_chain(
-   #     llm=llm,
-   #     chain_type='refine'
-   #    )
-   # chain.run(data_chunks)
+   chain = load_summarize_chain(
+        llm=llm,
+        chain_type='refine'
+        )
+    chain.run(data_chunks)
