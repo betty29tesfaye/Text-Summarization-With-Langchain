@@ -61,4 +61,4 @@ if uploaded_file is not None:
         llm=llm,
         chain_type='refine'
         )
-   print(chain.run(data_chunks))
+   st.write(chain.run(data_chunks))
